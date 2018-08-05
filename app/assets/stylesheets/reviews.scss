@@ -29,3 +29,23 @@
     }
 
 }
+
+/* New/Edit review form styles */
+
+.new-review-form, .edit-review-form {
+    @include background-tile;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    #rating-form {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+        }
+
+    }
+
+}

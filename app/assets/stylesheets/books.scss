@@ -58,3 +58,42 @@
     }
 
 }
+
+/* New Book Form styles */
+.new-book-form {
+    @include background-tile;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    #category_id {
+        margin-bottom: 10px;
+    }
+
+    #book_book_img {
+        margin-bottom: 10px;
+    }
+
+}
+
+
+/* Edit Book Form styles */
+
+.edit-book-form {
+
+    @include background-tile;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    #book_category_id {
+        margin-bottom: 10px;
+    }
+
+    #book_book_img {
+        margin-bottom: 10px;
+    }
+
+}

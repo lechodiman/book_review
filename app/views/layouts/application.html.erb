@@ -9,51 +9,52 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="masthead">
-        <h3 class="text-muted">Book Review</h3>
-        <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav text-md-center nav-justified w-100">
-              <li class="nav-item active">
-                <%= link_to "Home", root_path, {:class => "nav-link"} %>
-              </li>
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                <%= link_to "Sign Out", destroy_user_session_path, {:class => "nav-link", method: :delete} %>
-                </li>
-              <% else %>                
-              <li class="nav-item">
-                <%= link_to "Sign Up", new_user_registration_path, {:class => "nav-link"} %>
-              </li>
-                <li class="nav-item">
-                  <%= link_to "Log in", new_user_session_path, {:class => "nav-link"} %>
-                </li>
-              <% end %>
 
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "Add Book", new_book_path, {:class => "nav-link"} %>
-                </li>
-                
-              <% end %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <% Category.all.each do |category| %>
-                    <%= link_to category.name, books_path(category: category.name), {:class => params[:category] == category.name ? "dropdown-item active" : "dropdown-item"
-                      } %>
-                  <% end %>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="container">
+
+      <div class="navbar-brand">
+        <%= link_to "Book Review", root_path, class: "navbar-brand" %>
       </div>
-    </div> <!-- /container -->
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+           <li><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"  %></li>
+          <% else %>  
+            <li><%= link_to "Log In", new_user_session_path, class: "nav-link"  %></li>
+          <% end %>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <%= link_to "Add Book", new_book_path, class: "nav-link" %>
+          <% end %>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% Category.all.each do |category| %>
+                  <%= link_to category.name, books_path(category: category.name), class: params[:category] == category.name ? 'dropdown-item active' : 'dropdown-item' %>
+              <% end %>
+            </div>
+          </li>
+
+        </ul>
+        
+
+      </div>
+
+
+    </div>
+
+  </nav>
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

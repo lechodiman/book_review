@@ -30,7 +30,7 @@
             <h1>Reviews</h1>
             <%= render(@book.reviews) %>
             <div>
-                <%= link_to("Add Review", new_book_review_path(@book)) %>
+                <%= link_to "Add Review", new_book_review_path(@book), class:"btn-custom"  %>
             </div>
         </div>
 
@@ -38,22 +38,25 @@
 </div>
 
 
-<div class="links btn-group">
+<div class="row justify-content-center">
+    <div class="btn-group">
 
-    <%= link_to "Back", root_path, class: "btn btn-custom" %>
+        <%= link_to "Back", root_path, class: "btn btn-custom" %>
 
-    <% if user_signed_in? %>
+        <% if user_signed_in? %>
 
-        <% if @book.user_id == current_user.id %>
+            <% if @book.user_id == current_user.id %>
 
-            <%= link_to "Edit", edit_book_path(@book), class: "btn btn-custom" %>
-            <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+                <%= link_to "Edit", edit_book_path(@book), class: "btn btn-custom" %>
+                <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
 
-        <% end %>
+            <% end %>
 
-    <% end %>   
+        <% end %>   
 
+    </div>    
 </div>
+
 
 <script>
     $('.review-rating').raty({
