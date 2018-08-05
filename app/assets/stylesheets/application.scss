@@ -3,6 +3,8 @@
 @import "books";
 @import "reviews";
 
+$yellowBackground: darken(#f1c40f, 5%);
+
 body {
     background-color: #f5f5f5;
 }
@@ -64,6 +66,17 @@ p.alert, p.notice {
 
 .current-category {
     margin-bottom: 40px;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: $yellowBackground;
+}
+
+.navbar-nav .nav-link {
+    &:hover {
+        color: $yellowBackground !important;
+        transition: 0.5s;
+    }
 }
 
 /* Signup/Login form styles */
